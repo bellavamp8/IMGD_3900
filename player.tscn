@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://dkrqnbr388h1u"]
+
+[ext_resource type="Script" uid="uid://ddta58rnsmwph" path="res://IMGD_3900/character_body_2d.gd" id="1_2h4hl"]
+[ext_resource type="Texture2D" uid="uid://1jchj7xftp1l" path="res://IMGD_3900/assets/th.jpg" id="1_adcrc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t46qq"]
+radius = 72.00694
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lpig7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_adcrc")
+}],
+"loop": 1,
+"name": &"Run",
+"speed": 5.0
+}]
+
+[node name="Player" type="Node2D" unique_id=1664604228]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=503627217]
+script = ExtResource("1_2h4hl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1833712042]
+position = Vector2(88, 85)
+shape = SubResource("CircleShape2D_t46qq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=2053304931]
+position = Vector2(83.99997, 83)
+scale = Vector2(0.34177214, 0.33333334)
+sprite_frames = SubResource("SpriteFrames_lpig7")
+animation = &"Run"
