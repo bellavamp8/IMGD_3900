@@ -2,10 +2,50 @@
 
 [ext_resource type="Texture2D" uid="uid://ce5vauiijf1d2" path="res://IMGD_3900/assets/icon.svg" id="1_0jxhq"]
 
+[sub_resource type="Animation" id="Animation_0jxhq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1228, 415)]
+}
+
+[sub_resource type="Animation" id="Animation_at677"]
+resource_name = "obstacle"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1228, 415), Vector2(-72, 414)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i1p7p"]
+_data = {
+&"RESET": SubResource("Animation_0jxhq"),
+&"obstacle": SubResource("Animation_at677")
+}
+
 [node name="Obstacle" type="Node2D" unique_id=1661161340]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=301097509]
-position = Vector2(331, 352)
+position = Vector2(1228, 415)
 texture = ExtResource("1_0jxhq")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2127787259]
+libraries/ = SubResource("AnimationLibrary_i1p7p")
+autoplay = &"obstacle"

@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cq4lnbe537wix" path="res://IMGD_3900/foreground.tscn" id="2_ya0kd"]
 [ext_resource type="PackedScene" uid="uid://dkrqnbr388h1u" path="res://IMGD_3900/player.tscn" id="3_r4yoh"]
 [ext_resource type="AudioStream" uid="uid://bno38esb2gsol" path="res://IMGD_3900/audio/music/Hotel Runner v1.wav" id="4_ya0kd"]
+[ext_resource type="PackedScene" uid="uid://g78pwwxujlus" path="res://IMGD_3900/obstacle.tscn" id="5_r4yoh"]
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_vajwr"]
 stream_count = 1
@@ -24,3 +25,6 @@ position = Vector2(98, 361)
 stream = SubResource("AudioStreamPlaylist_vajwr")
 volume_db = -25.946
 autoplay = true
+
+[node name="Obstacle" parent="." unique_id=1661161340 instance=ExtResource("5_r4yoh")]
+position = Vector2(-13, 47)
