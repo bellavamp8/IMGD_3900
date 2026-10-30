@@ -5,5 +5,7 @@
 [node name="Obstacle" type="Node2D" unique_id=1661161340]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=301097509]
-position = Vector2(132, 258)
+position = Vector2(331, 352)
 texture = ExtResource("1_0jxhq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2127787259]

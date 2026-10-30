@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://cq4lnbe537wix"]
 
-[ext_resource type="Texture2D" uid="uid://dhsljvrlt87xd" path="res://IMGD_3900/assets/OIP (2).webp" id="1_bydpf"]
 [ext_resource type="PackedScene" uid="uid://bsy3tovlgu73l" path="res://IMGD_3900/scrolling_background.tscn" id="1_revuo"]
 [ext_resource type="Shader" uid="uid://br86ce4gygtq1" path="res://new_shader.gdshader" id="2_086el"]
+[ext_resource type="Texture2D" uid="uid://4j18jfgo7uae" path="res://IMGD_3900/assets/R.png" id="3_revuo"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_65u2i"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_086el"]
 resource_local_to_scene = true
 shader = ExtResource("2_086el")
 shader_parameter/scroll_speed = 1.0
@@ -17,10 +17,11 @@ size = Vector2(1148.5, 45)
 [node name="foreground" type="Node2D" unique_id=1513473835]
 
 [node name="ScrollingBackground" parent="." unique_id=1792573543 instance=ExtResource("1_revuo")]
-material = SubResource("ShaderMaterial_65u2i")
+material = SubResource("ShaderMaterial_086el")
+offset_top = 100.0
 offset_right = 1153.0
-offset_bottom = 270.0
-texture = ExtResource("1_bydpf")
+offset_bottom = 500.0
+texture = ExtResource("3_revuo")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1298915457]
 position = Vector2(1, 97)

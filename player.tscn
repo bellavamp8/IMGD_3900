@@ -2,6 +2,10 @@
 
 [ext_resource type="Script" uid="uid://ddta58rnsmwph" path="res://IMGD_3900/character_body_2d.gd" id="1_2h4hl"]
 [ext_resource type="Texture2D" uid="uid://1jchj7xftp1l" path="res://IMGD_3900/assets/th.jpg" id="1_adcrc"]
+[ext_resource type="AudioStream" uid="uid://bp53s0hpvrwtv" path="res://IMGD_3900/audio/music/bc_fs_tile1.wav" id="3_e8p4d"]
+[ext_resource type="AudioStream" uid="uid://bh4tc7k1pksa5" path="res://IMGD_3900/audio/music/bc_fs_tile2.wav" id="4_63upp"]
+[ext_resource type="AudioStream" uid="uid://dalsn47tip4sn" path="res://IMGD_3900/audio/music/bc_fs_tile3.wav" id="5_1h0gp"]
+[ext_resource type="AudioStream" uid="uid://b6wjpnxaa4mss" path="res://IMGD_3900/audio/music/bc_fs_tile4.wav" id="6_367s2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t46qq"]
 radius = 72.00694
@@ -17,6 +21,14 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_oecdl"]
+shuffle = true
+stream_count = 4
+stream_0 = ExtResource("3_e8p4d")
+stream_1 = ExtResource("4_63upp")
+stream_2 = ExtResource("5_1h0gp")
+stream_3 = ExtResource("6_367s2")
+
 [node name="Player" type="Node2D" unique_id=1664604228]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=503627217]
@@ -31,3 +43,7 @@ position = Vector2(83.99997, 83)
 scale = Vector2(0.34177214, 0.33333334)
 sprite_frames = SubResource("SpriteFrames_lpig7")
 animation = &"Run"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CharacterBody2D" unique_id=1941456189]
+stream = SubResource("AudioStreamPlaylist_oecdl")
+autoplay = true
