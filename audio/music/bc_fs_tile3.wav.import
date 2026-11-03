@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dalsn47tip4sn"
-path="res://.godot/imported/bc_fs_tile3.wav-34dc6cfd088c8d35fcdb358aa72594f5.sample"
+path="res://.godot/imported/bc_fs_tile3.wav-e6f033c2dc77a1a5f3814977b279e2f8.sample"
 
 [deps]
 
-source_file="res://IMGD_3900/audio/music/bc_fs_tile3.wav"
-dest_files=["res://.godot/imported/bc_fs_tile3.wav-34dc6cfd088c8d35fcdb358aa72594f5.sample"]
+source_file="res://audio/music/bc_fs_tile3.wav"
+dest_files=["res://.godot/imported/bc_fs_tile3.wav-e6f033c2dc77a1a5f3814977b279e2f8.sample"]
 
 [params]
 

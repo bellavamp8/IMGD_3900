@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bno38esb2gsol"
-path="res://.godot/imported/Hotel Runner v1.wav-a3c2c091e415125df8f12c710484928e.sample"
+path="res://.godot/imported/Hotel Runner v1.wav-6ffa9e0b0c7f44397fad5c947daabad1.sample"
 
 [deps]
 
-source_file="res://IMGD_3900/audio/music/Hotel Runner v1.wav"
-dest_files=["res://.godot/imported/Hotel Runner v1.wav-a3c2c091e415125df8f12c710484928e.sample"]
+source_file="res://audio/music/Hotel Runner v1.wav"
+dest_files=["res://.godot/imported/Hotel Runner v1.wav-6ffa9e0b0c7f44397fad5c947daabad1.sample"]
 
 [params]
 
