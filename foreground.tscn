@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://cq4lnbe537wix"]
 
-[ext_resource type="PackedScene" uid="uid://bsy3tovlgu73l" path="res://IMGD_3900/scrolling_background.tscn" id="1_revuo"]
+[ext_resource type="PackedScene" uid="uid://bsy3tovlgu73l" path="res://scrolling_background.tscn" id="1_revuo"]
 [ext_resource type="Shader" uid="uid://br86ce4gygtq1" path="res://new_shader.gdshader" id="2_086el"]
-[ext_resource type="Texture2D" uid="uid://4j18jfgo7uae" path="res://IMGD_3900/assets/R.png" id="3_revuo"]
+[ext_resource type="Texture2D" uid="uid://do8nbqilihe6k" path="res://assets/R.png" id="3_revuo"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_086el"]
 resource_local_to_scene = true
