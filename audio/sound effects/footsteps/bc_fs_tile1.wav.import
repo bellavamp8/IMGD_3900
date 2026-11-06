@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bp53s0hpvrwtv"
-path="res://.godot/imported/bc_fs_tile1.wav-ba6c967317b48e10c8708a2e974d9c5c.sample"
+path="res://.godot/imported/bc_fs_tile1.wav-0832e6b0c253a7388a0d7952c92f6e45.sample"
 
 [deps]
 
-source_file="res://audio/music/bc_fs_tile1.wav"
-dest_files=["res://.godot/imported/bc_fs_tile1.wav-ba6c967317b48e10c8708a2e974d9c5c.sample"]
+source_file="res://audio/sound effects/footsteps/bc_fs_tile1.wav"
+dest_files=["res://.godot/imported/bc_fs_tile1.wav-0832e6b0c253a7388a0d7952c92f6e45.sample"]
 
 [params]
 

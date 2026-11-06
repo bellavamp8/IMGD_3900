@@ -2,9 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://bsy3tovlgu73l" path="res://scrolling_background.tscn" id="1_revuo"]
 [ext_resource type="Shader" uid="uid://br86ce4gygtq1" path="res://new_shader.gdshader" id="2_086el"]
-[ext_resource type="Texture2D" uid="uid://do8nbqilihe6k" path="res://assets/R.png" id="3_revuo"]
+[ext_resource type="Texture2D" uid="uid://bgfvu0j42q2by" path="res://assets/floor-top.png" id="3_exfqn"]
+[ext_resource type="Texture2D" uid="uid://c2js6sn0m84m1" path="res://assets/floor-bottom.png" id="4_0vwki"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_086el"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ys451"]
 resource_local_to_scene = true
 shader = ExtResource("2_086el")
 shader_parameter/scroll_speed = 1.0
@@ -12,21 +13,39 @@ shader_parameter/scroll_speed = 1.0
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_t46qq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t46qq"]
-size = Vector2(1148.5, 45)
+size = Vector2(1154.25, 45)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jvd0q"]
+resource_local_to_scene = true
+shader = ExtResource("2_086el")
+shader_parameter/scroll_speed = 1.0
 
 [node name="foreground" type="Node2D" unique_id=1513473835]
 
 [node name="ScrollingBackground" parent="." unique_id=1792573543 instance=ExtResource("1_revuo")]
-material = SubResource("ShaderMaterial_086el")
+material = SubResource("ShaderMaterial_ys451")
+offset_left = -6.0
 offset_top = 100.0
-offset_right = 1153.0
-offset_bottom = 500.0
-texture = ExtResource("3_revuo")
+offset_right = 1161.0
+offset_bottom = 140.0
+texture = ExtResource("3_exfqn")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1298915457]
-position = Vector2(1, 97)
+position = Vector2(9, 263)
 physics_material_override = SubResource("PhysicsMaterial_t46qq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=453508100]
-position = Vector2(575.75, 26)
+position = Vector2(569.875, -139)
 shape = SubResource("RectangleShape2D_t46qq")
+
+[node name="ScrollingBackground2" parent="." unique_id=373530168 instance=ExtResource("1_revuo")]
+material = SubResource("ShaderMaterial_jvd0q")
+offset_left = -10.0
+offset_top = 136.0
+offset_right = 1169.0
+offset_bottom = 688.0
+texture = ExtResource("4_0vwki")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1477866460]
+position = Vector2(3, 182)
+physics_material_override = SubResource("PhysicsMaterial_t46qq")

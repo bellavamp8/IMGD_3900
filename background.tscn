@@ -3,8 +3,14 @@
 [ext_resource type="PackedScene" uid="uid://bsy3tovlgu73l" path="res://scrolling_background.tscn" id="1_xxiwg"]
 [ext_resource type="Shader" uid="uid://br86ce4gygtq1" path="res://new_shader.gdshader" id="2_a76yt"]
 [ext_resource type="Texture2D" uid="uid://c4m63rre1icx8" path="res://assets/hotel wall.png" id="3_xxiwg"]
+[ext_resource type="Texture2D" uid="uid://xgcjleb7sh2f" path="res://assets/wall-baseboard.png" id="4_splo0"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_xehqc"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eq6nc"]
+resource_local_to_scene = true
+shader = ExtResource("2_a76yt")
+shader_parameter/scroll_speed = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bpugw"]
 resource_local_to_scene = true
 shader = ExtResource("2_a76yt")
 shader_parameter/scroll_speed = 1.0
@@ -12,7 +18,15 @@ shader_parameter/scroll_speed = 1.0
 [node name="background" type="Node2D" unique_id=289052586]
 
 [node name="ScrollingBackground" parent="." unique_id=1792573543 instance=ExtResource("1_xxiwg")]
-material = SubResource("ShaderMaterial_xehqc")
+material = SubResource("ShaderMaterial_eq6nc")
 offset_right = 1155.0
 offset_bottom = 960.0
 texture = ExtResource("3_xxiwg")
+
+[node name="ScrollingBackground2" parent="." unique_id=1913124403 instance=ExtResource("1_xxiwg")]
+material = SubResource("ShaderMaterial_bpugw")
+offset_left = -3.0
+offset_top = 491.0
+offset_right = 1152.0
+offset_bottom = 530.0
+texture = ExtResource("4_splo0")
