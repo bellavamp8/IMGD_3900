@@ -5,11 +5,24 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -550.0
 
 var jump_sound = preload("res://audio/sound effects/bc_jump1.wav")
+var heavy_hit = preload("res://audio/sound effects/bc_hitheavy_muffled.wav")
+var light_hit = preload("res://audio/sound effects/bc_hitlight_muffled.wav")
+
 
 func play_jump_sound():
-		var jump_sound_player = $AudioStreamPlayer2
-		jump_sound_player.stream = jump_sound
-		jump_sound_player.play()
+	var jump_sound_player = $sound_effects
+	jump_sound_player.stream = jump_sound
+	jump_sound_player.play()
+
+func play_heavy_hit_sound():
+	var heavy_hit_sound_player = $sound_effects
+	heavy_hit_sound_player.stream = heavy_hit
+	heavy_hit_sound_player.play()
+
+func play_light_hit_sound():
+	var light_hit_sound_player = $sound_effects
+	light_hit_sound_player.stream = light_hit
+	light_hit_sound_player.play()
 
 
 func _physics_process(delta: float) -> void:

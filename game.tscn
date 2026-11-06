@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://ddt8wnyr78df6"]
 
 [ext_resource type="PackedScene" uid="uid://cal0eml0c3qls" path="res://background.tscn" id="1_vrmgq"]
-[ext_resource type="PackedScene" uid="uid://cq4lnbe537wix" path="res://foreground.tscn" id="2_ya0kd"]
 [ext_resource type="PackedScene" uid="uid://dkrqnbr388h1u" path="res://player.tscn" id="3_r4yoh"]
 [ext_resource type="AudioStream" uid="uid://bno38esb2gsol" path="res://audio/music/Hotel Runner v1.wav" id="4_ya0kd"]
 [ext_resource type="PackedScene" uid="uid://g78pwwxujlus" path="res://obstacle.tscn" id="5_r4yoh"]
@@ -15,11 +14,8 @@ stream_0 = ExtResource("4_ya0kd")
 [node name="background" parent="." unique_id=289052586 instance=ExtResource("1_vrmgq")]
 position = Vector2(-1, -1)
 
-[node name="foreground" parent="." unique_id=1513473835 instance=ExtResource("2_ya0kd")]
-position = Vector2(1, 423)
-
 [node name="Player" parent="." unique_id=1664604228 instance=ExtResource("3_r4yoh")]
-position = Vector2(98, 361)
+position = Vector2(108, 364)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=31903574]
 stream = SubResource("AudioStreamPlaylist_vajwr")

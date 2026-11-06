@@ -48,4 +48,4 @@ autoplay = true
 position = Vector2(81, 83)
 shape = SubResource("CircleShape2D_stdwv")
 
-[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="CharacterBody2D" unique_id=1315755749]
+[node name="sound_effects" type="AudioStreamPlayer" parent="CharacterBody2D" unique_id=1315755749]
