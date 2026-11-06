@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://bsy3tovlgu73l" path="res://scrolling_background.tscn" id="1_revuo"]
 [ext_resource type="Shader" uid="uid://br86ce4gygtq1" path="res://new_shader.gdshader" id="2_086el"]
-[ext_resource type="Texture2D" uid="uid://bgfvu0j42q2by" path="res://assets/floor-top.png" id="3_exfqn"]
-[ext_resource type="Texture2D" uid="uid://c2js6sn0m84m1" path="res://assets/floor-bottom.png" id="4_0vwki"]
+[ext_resource type="Texture2D" uid="uid://bgfvu0j42q2by" path="res://assets/background/floor-top.png" id="3_exfqn"]
+[ext_resource type="Texture2D" uid="uid://c2js6sn0m84m1" path="res://assets/background/floor-bottom.png" id="4_0vwki"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ys451"]
 resource_local_to_scene = true

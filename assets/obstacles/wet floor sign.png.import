@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bu47fu0cfdc47"
-path="res://.godot/imported/wall-blank.png-709f2f7c1dab9715d60179e95a831a77.ctex"
+uid="uid://yf6ydgss2vsr"
+path="res://.godot/imported/wet floor sign.png-01fc8d0bd23b2748f9ec0c0e138cb7d2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/wall-blank.png"
-dest_files=["res://.godot/imported/wall-blank.png-709f2f7c1dab9715d60179e95a831a77.ctex"]
+source_file="res://assets/obstacles/wet floor sign.png"
+dest_files=["res://.godot/imported/wet floor sign.png-01fc8d0bd23b2748f9ec0c0e138cb7d2.ctex"]
 
 [params]
 

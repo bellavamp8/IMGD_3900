@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://g78pwwxujlus"]
 
-[ext_resource type="Texture2D" uid="uid://yf6ydgss2vsr" path="res://assets/wet floor sign.png" id="1_sl1jc"]
+[ext_resource type="Texture2D" uid="uid://yf6ydgss2vsr" path="res://assets/obstacles/wet floor sign.png" id="1_sl1jc"]
 
 [sub_resource type="Animation" id="Animation_0jxhq"]
 length = 4.1

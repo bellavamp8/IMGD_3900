@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djebsa8x75r6g"
-path="res://.godot/imported/wall-lamp.png-ab78224790d23b31e8b75da21afa783f.ctex"
+uid="uid://xgcjleb7sh2f"
+path="res://.godot/imported/wall-baseboard.png-54b5088b7cd6e6bde0f4527e26e72c2a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/wall-lamp.png"
-dest_files=["res://.godot/imported/wall-lamp.png-ab78224790d23b31e8b75da21afa783f.ctex"]
+source_file="res://assets/background/wall-baseboard.png"
+dest_files=["res://.godot/imported/wall-baseboard.png-54b5088b7cd6e6bde0f4527e26e72c2a.ctex"]
 
 [params]
 
