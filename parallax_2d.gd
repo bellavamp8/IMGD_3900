@@ -8,6 +8,8 @@ extends Parallax2D
 @export var nextobjectivedistance = 1000;
 @export var objectivenumber = 1;
 @export var clearlock = false; # Makes it so a clear doesn't happen several times when a player meets the objective.
+@onready var clear_objective_sound: AudioStreamPlayer2D = $ClearObjectiveSound
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -35,7 +37,7 @@ func _process(delta: float) -> void:
 func objectiveclear() -> void: # This is for the objective stuff
 	clearlock = true;
 	autoscroll.x = 0;
-	
+	clear_objective_sound.play()
 	# When timer is implemented, reset it here! ! ! ! ! ! ! ! ! ! !
 
 	print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
