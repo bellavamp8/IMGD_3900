@@ -1,17 +1,40 @@
 [gd_scene format=3 uid="uid://dkrqnbr388h1u"]
 
 [ext_resource type="Script" uid="uid://ddta58rnsmwph" path="res://character_body_2d.gd" id="1_2h4hl"]
-[ext_resource type="Texture2D" uid="uid://1jchj7xftp1l" path="res://assets/th.jpg" id="1_adcrc"]
+[ext_resource type="Texture2D" uid="uid://c7rhnl7vt7qls" path="res://assets/butler spritesheet.png" id="2_2hs0m"]
 [ext_resource type="AudioStream" uid="uid://bp53s0hpvrwtv" path="res://audio/sound effects/footsteps/bc_fs_tile1.wav" id="3_e8p4d"]
 [ext_resource type="AudioStream" uid="uid://bh4tc7k1pksa5" path="res://audio/sound effects/footsteps/bc_fs_tile2.wav" id="4_63upp"]
 [ext_resource type="AudioStream" uid="uid://dalsn47tip4sn" path="res://audio/sound effects/footsteps/bc_fs_tile3.wav" id="5_1h0gp"]
 [ext_resource type="AudioStream" uid="uid://b6wjpnxaa4mss" path="res://audio/sound effects/footsteps/bc_fs_tile4.wav" id="6_367s2"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_dw050"]
+atlas = ExtResource("2_2hs0m")
+region = Rect2(400, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hs0m"]
+atlas = ExtResource("2_2hs0m")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1jxqw"]
+atlas = ExtResource("2_2hs0m")
+region = Rect2(200, 0, 200, 200)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_lpig7"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_adcrc")
+"texture": SubResource("AtlasTexture_dw050")
+}],
+"loop": 1,
+"name": &"Jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2hs0m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1jxqw")
 }],
 "loop": 1,
 "name": &"Run",
@@ -26,17 +49,16 @@ stream_1 = ExtResource("4_63upp")
 stream_2 = ExtResource("5_1h0gp")
 stream_3 = ExtResource("6_367s2")
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_stdwv"]
-radius = 76.00658
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fc0e3"]
+size = Vector2(134, 197)
 
 [node name="Player" type="Node2D" unique_id=1664604228]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=503627217]
+scale = Vector2(0.78, 0.78)
 script = ExtResource("1_2h4hl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=2053304931]
-position = Vector2(83.99997, 83)
-scale = Vector2(0.34177214, 0.33333334)
 sprite_frames = SubResource("SpriteFrames_lpig7")
 animation = &"Run"
 
@@ -45,7 +67,7 @@ stream = SubResource("AudioStreamPlaylist_oecdl")
 autoplay = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=53566211]
-position = Vector2(81, 83)
-shape = SubResource("CircleShape2D_stdwv")
+position = Vector2(-2, 1.5)
+shape = SubResource("RectangleShape2D_fc0e3")
 
 [node name="sound_effects" type="AudioStreamPlayer" parent="CharacterBody2D" unique_id=1315755749]
