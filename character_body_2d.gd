@@ -7,7 +7,7 @@ const JUMP_VELOCITY = -550.0
 var jump_sound = preload("res://audio/sound effects/bc_jump1.wav")
 var heavy_hit = preload("res://audio/sound effects/bc_hitheavy_muffled.wav")
 var light_hit = preload("res://audio/sound effects/bc_hitlight_muffled.wav")
-
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 func play_jump_sound():
 	var jump_sound_player = $sound_effects
@@ -30,12 +30,14 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += (get_gravity() * delta*0.8)
 	
-
+	if is_on_floor():
+		animated_sprite.play("Run")
 
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		play_jump_sound()
+		animated_sprite.play("Jump")
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
