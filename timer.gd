@@ -1,13 +1,14 @@
 extends Panel
 
-var time: float = 60.0
-var stopped = false
-var minutes: int = 0
-var seconds: int = 0
-var msec: int = 0
+@export var time: float = 60.0
+@export var stopped = false
+@export var minutes: int = 0
+@export var seconds: int = 0
+@export var msec: int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	add_to_group("timer")
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
