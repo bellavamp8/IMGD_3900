@@ -33,7 +33,6 @@ func _process(delta: float) -> void:
 
 
 
-
 func objectiveclear() -> void: # This is for the objective stuff
 	clearlock = true;
 	autoscroll.x = 0;
