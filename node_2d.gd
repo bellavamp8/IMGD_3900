@@ -2,9 +2,7 @@ extends Node2D
 
 # Spawn points (screen coordinates). Add or move these as you like.
 const SPAWN_POINTS: Array[Vector2] = [
-	Vector2(100, 0),
-	Vector2(200, 0),
-	Vector2(300, 0),
+	Vector2(100, 300)
 ]
 
 # Distance an obstacle must be from an existing one to be accepted.

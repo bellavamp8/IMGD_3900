@@ -55,7 +55,7 @@ size = Vector2(134, 197)
 [node name="Player" type="Node2D" unique_id=1664604228]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=503627217]
-scale = Vector2(0.78, 0.78)
+scale = Vector2(0.6, 0.6)
 script = ExtResource("1_2h4hl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=2053304931]

@@ -60,7 +60,7 @@ horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="Player" parent="." unique_id=1664604228 instance=ExtResource("3_r4yoh")]
-position = Vector2(183, 413)
+position = Vector2(183, 429.99994)
 scale = Vector2(1.61, 1.61)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=31903574]

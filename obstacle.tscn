@@ -54,10 +54,11 @@ autoplay = &"RESET"
 position = Vector2(11, 25)
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=301097509]
-position = Vector2(1228, 415)
-scale = Vector2(2.828125, 3.0625)
+position = Vector2(1247, 417.99997)
+scale = Vector2(2.2421873, 2.4280038)
 texture = ExtResource("1_sl1jc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=644826466]
-position = Vector2(1228, 424)
+position = Vector2(1247.0001, 430.00003)
+scale = Vector2(0.77, 0.77)
 shape = SubResource("CircleShape2D_00y7e")
