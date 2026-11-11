@@ -1,5 +1,6 @@
 extends Parallax2D
 
+
 @export var scroll_speed = -100
 @export var start_speed = -100
 @export var max_speed = -700
@@ -37,7 +38,8 @@ func objectiveclear() -> void: # This is for the objective stuff
 	clearlock = true;
 	autoscroll.x = 0;
 	clear_objective_sound.play()
-	# When timer is implemented, reset it here! ! ! ! ! ! ! ! ! ! !
+	get_tree().call_group("timer", "reset_timer")
+
 
 	print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
 	print("-------------------------------------------------")
@@ -49,6 +51,7 @@ func objectiveclear() -> void: # This is for the objective stuff
 	print("-------------------------------------------------")
 	await get_tree().create_timer(1.0).timeout # Timer to prevent clear from happening several times upon hitting the required x value.
 	clearlock = false;
+
 
 
 
