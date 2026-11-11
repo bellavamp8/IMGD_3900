@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://ddt8wnyr78df6"]
+
+[ext_resource type="PackedScene" uid="uid://cal0eml0c3qls" path="res://background.tscn" id="1_vrmgq"]
+[ext_resource type="Script" uid="uid://3cbah41rm1b" path="res://timer.gd" id="2_7jktm"]
+[ext_resource type="PackedScene" uid="uid://dkrqnbr388h1u" path="res://player.tscn" id="3_r4yoh"]
+[ext_resource type="AudioStream" uid="uid://bno38esb2gsol" path="res://audio/music/Hotel Runner v1.wav" id="4_ya0kd"]
+[ext_resource type="PackedScene" uid="uid://g78pwwxujlus" path="res://obstacle.tscn" id="5_r4yoh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fc0e3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7jktm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ryrav"]
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_vajwr"]
+stream_count = 1
+stream_0 = ExtResource("4_ya0kd")
+
+[node name="Game" type="Node2D" unique_id=427606292]
+
+[node name="background" parent="." unique_id=289052586 instance=ExtResource("1_vrmgq")]
+position = Vector2(-1, -1)
+
+[node name="Timer" type="Panel" parent="background" unique_id=2076822159]
+offset_right = 78.0
+offset_bottom = 22.0
+script = ExtResource("2_7jktm")
+
+[node name="Minutes" type="Label" parent="background/Timer" unique_id=1102394639]
+layout_mode = 0
+offset_left = -15.0
+offset_top = -1.0
+offset_right = 26.0
+offset_bottom = 22.0
+text = "00:"
+label_settings = SubResource("LabelSettings_fc0e3")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Seconds" type="Label" parent="background/Timer" unique_id=1562200965]
+layout_mode = 0
+offset_left = 9.0
+offset_top = -1.0
+offset_right = 49.0
+offset_bottom = 22.0
+text = "00."
+label_settings = SubResource("LabelSettings_7jktm")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="MSec" type="Label" parent="background/Timer" unique_id=202520979]
+layout_mode = 0
+offset_left = 36.0
+offset_top = -1.0
+offset_right = 76.0
+offset_bottom = 22.0
+text = "000"
+label_settings = SubResource("LabelSettings_ryrav")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Player" parent="." unique_id=1664604228 instance=ExtResource("3_r4yoh")]
+position = Vector2(183, 413)
+scale = Vector2(1.61, 1.61)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=31903574]
+stream = SubResource("AudioStreamPlaylist_vajwr")
+volume_db = -25.946
+autoplay = true
+
+[node name="Obstacle" parent="." unique_id=1661161340 instance=ExtResource("5_r4yoh")]
