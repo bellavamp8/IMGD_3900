@@ -2,13 +2,13 @@ extends Node2D
 
 # Spawn points (screen coordinates). Add or move these as you like.
 const SPAWN_POINTS: Array[Vector2] = [
-	Vector2(100, 300)
+	Vector2(0, 0)
 ]
 
 # Distance an obstacle must be from an existing one to be accepted.
 const MIN_SPACING: float = 60.0
 # Scene to spawn.
-const OBSTACLE_SCENE: String = "res://IMGD_3900/scenes/obstacle.tscn"
+const OBSTACLE_SCENE: String = "res://obstacle.tscn"
 # How many times to retry finding a free spot before giving up this spawn.
 const PLACEMENT_ATTEMPTS: int = 20
 
@@ -21,6 +21,7 @@ var _timer: float = 0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	print("Obstacle spawner ready")
 	# Seed so runs differ from each other.
 	randomize()
 	if auto_spawn:
@@ -42,6 +43,7 @@ func _process(delta: float) -> void:
 
 # Instantiates one obstacle at a random free spawn point.
 func spawn_obstacle() -> void:
+	print("Spawning obstacle")
 	if get_tree().get_nodes_in_group("obstacles").size() >= max_obstacles:
 		return
 
