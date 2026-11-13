@@ -2,17 +2,20 @@ extends Node2D
 
 # Spawn points (screen coordinates). Add or move these as you like.
 const SPAWN_POINTS: Array[Vector2] = [
-	Vector2(100, 300)
+	Vector2(0, 0)
 ]
 
 # Distance an obstacle must be from an existing one to be accepted.
 const MIN_SPACING: float = 60.0
 # Scene to spawn.
-const OBSTACLE_SCENE: String = "res://IMGD_3900/scenes/obstacle.tscn"
+const OBSTACLE_SCENE: String = "res://obstacle.tscn"
 # How many times to retry finding a free spot before giving up this spawn.
 const PLACEMENT_ATTEMPTS: int = 20
+# Amount of time between obstacle spawns
+const MIN_SPAWN_INTERVAL: float = 2
+const MAX_SPAWN_INTERVAL: float = 4
 
-@export var spawn_interval: float = 1.5
+@export var spawn_interval: float = randf_range(MIN_SPAWN_INTERVAL, MAX_SPAWN_INTERVAL)
 @export var max_obstacles: int = 20
 @export var auto_spawn: bool = true
 
@@ -37,6 +40,7 @@ func _process(delta: float) -> void:
 		return
 
 	_timer = 0.0
+	spawn_interval = randf_range(MIN_SPAWN_INTERVAL, MAX_SPAWN_INTERVAL)
 	spawn_obstacle()
 
 
