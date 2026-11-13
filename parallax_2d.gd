@@ -6,11 +6,14 @@ extends Parallax2D
 @export var max_speed = -700
 @export var acceleration = 0.1
 @export var distance = 1.0 # Set to 1 so the modulo doesn't mess up
+@export var distance_traveled = 0.0
+@export var percent_distance = 0.0
 @export var nextobjectivedistance = 1000;
 @export var objectivenumber = 1;
 @export var clearlock = false; # Makes it so a clear doesn't happen several times when a player meets the objective.
 @onready var clear_objective_sound: AudioStreamPlayer2D = $ClearObjectiveSound
 
+signal distance_progress(percent)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -27,10 +30,15 @@ func _process(delta: float) -> void:
 	if autoscroll.x >= max_speed:
 		autoscroll.x += scroll_speed * delta * acceleration
 	distance += scroll_speed * delta * acceleration # I basically just implemented the distance like autoscroll.x but without a cap. If it works correctly, it should just track the accurate distance based on current acceleration.
+	distance_traveled = distance # distance value which resets per objective, used for the progress bar
+	distance_progress.emit(percent_distance)
 	if ((int(floor(distance)) % nextobjectivedistance) == 0):
 		if clearlock != true:
 			objectiveclear()
 
+func percentile_distance() -> float:
+	percent_distance = (distance_traveled / nextobjectivedistance) * 100
+	return percent_distance
 
 
 
@@ -39,7 +47,7 @@ func objectiveclear() -> void: # This is for the objective stuff
 	autoscroll.x = 0;
 	clear_objective_sound.play()
 	get_tree().call_group("timer", "reset_timer")
-
+	distance_traveled = 0.0
 
 	print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
 	print("-------------------------------------------------")

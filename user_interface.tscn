@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://bvaieq823o3ce"]
+
+[ext_resource type="Script" uid="uid://3cbah41rm1b" path="res://timer.gd" id="1_kxhmu"]
+[ext_resource type="Texture2D" uid="uid://c72uhmesc5fhq" path="res://assets/progress bar medium rounded under.png" id="2_0jl8t"]
+[ext_resource type="Texture2D" uid="uid://b8yksgyo5rlsu" path="res://assets/progress bar medium rounded over.png" id="3_up53h"]
+[ext_resource type="Texture2D" uid="uid://ddto5mqtjh3dl" path="res://assets/progress bar medium rounded progress blue.png" id="4_r3lf1"]
+[ext_resource type="Script" uid="uid://cyg3p3phxig7y" path="res://texture_progress_bar.gd" id="5_up53h"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_i7dvk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_juc2q"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0jl8t"]
+
+[node name="UI" type="Control" unique_id=811079069]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Timer" type="Panel" parent="." unique_id=1799686957]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 77.0
+offset_bottom = 21.0
+script = ExtResource("1_kxhmu")
+
+[node name="Minutes" type="Label" parent="Timer" unique_id=2022991547]
+layout_mode = 0
+offset_left = -15.0
+offset_top = -1.0
+offset_right = 26.0
+offset_bottom = 22.0
+text = "00:"
+label_settings = SubResource("LabelSettings_i7dvk")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Seconds" type="Label" parent="Timer" unique_id=1636848963]
+layout_mode = 0
+offset_left = 9.0
+offset_top = -1.0
+offset_right = 49.0
+offset_bottom = 22.0
+text = "00."
+label_settings = SubResource("LabelSettings_juc2q")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Msecs" type="Label" parent="Timer" unique_id=165809779]
+layout_mode = 0
+offset_left = 36.0
+offset_top = -1.0
+offset_right = 76.0
+offset_bottom = 22.0
+text = "000"
+label_settings = SubResource("LabelSettings_0jl8t")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=519815647]
+layout_mode = 0
+offset_left = 449.0
+offset_top = 32.0
+offset_right = 662.0
+offset_bottom = 75.0
+offset_transform_enabled = true
+value = 100.0
+rounded = true
+nine_patch_stretch = true
+texture_under = ExtResource("2_0jl8t")
+texture_over = ExtResource("3_up53h")
+texture_progress = ExtResource("4_r3lf1")
+script = ExtResource("5_up53h")
