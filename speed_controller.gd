@@ -46,6 +46,8 @@ func change_speed(difference: float) -> void:
 	if current_speed < 0:
 		current_speed = 0
 
+func reset_speed() -> void:
+	current_speed = start_speed
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

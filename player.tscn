@@ -50,7 +50,7 @@ stream_2 = ExtResource("5_1h0gp")
 stream_3 = ExtResource("6_367s2")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fc0e3"]
-size = Vector2(134, 197)
+size = Vector2(75, 175)
 
 [node name="Player" type="Node2D" unique_id=1664604228]
 
@@ -67,7 +67,7 @@ stream = SubResource("AudioStreamPlaylist_oecdl")
 autoplay = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=53566211]
-position = Vector2(-2, 1.5)
+position = Vector2(-9.166666, 12.500001)
 shape = SubResource("RectangleShape2D_fc0e3")
 
 [node name="sound_effects" type="AudioStreamPlayer" parent="CharacterBody2D" unique_id=1315755749]
