@@ -28,7 +28,7 @@ autoplay = true
 
 [node name="ObstacleSpawner" parent="." unique_id=881665383 instance=ExtResource("6_ryrav")]
 
-[node name="SpeedController" type="Node2D" parent="." unique_id=584940805]
+[node name="SpeedController" type="Node2D" parent="." unique_id=584940805 groups=["speed_controller"]]
 script = ExtResource("6_eow3j")
 
 [node name="ClearObjectiveSound" type="AudioStreamPlayer2D" parent="SpeedController" unique_id=1571380807]

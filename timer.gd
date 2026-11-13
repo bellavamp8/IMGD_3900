@@ -21,7 +21,7 @@ func _process(delta: float) -> void:
 	$Seconds.text = "%02d." % seconds
 	$Msecs.text = "%03d" % msec
 	if time <= 0.0:
-		reset_timer()
+		get_tree().quit()
 
 func reset_timer() -> void:
 	time = 60.0
