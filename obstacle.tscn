@@ -1,21 +1,22 @@
 [gd_scene format=3 uid="uid://g78pwwxujlus"]
 
+[ext_resource type="Script" uid="uid://dxmp5ghd27mgm" path="res://obstacle_movement.gd" id="1_aubd6"]
 [ext_resource type="Texture2D" uid="uid://yf6ydgss2vsr" path="res://assets/obstacles/wet floor sign.png" id="1_sl1jc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_00y7e"]
 radius = 75.66373
 
 [node name="Obstacle" type="Node2D" unique_id=1661161340]
+script = ExtResource("1_aubd6")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=478328798]
-position = Vector2(11, 25)
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=301097509]
-position = Vector2(1247, 417.99997)
+position = Vector2(1246.9999, 433.99994)
 scale = Vector2(2.2421873, 2.4280038)
 texture = ExtResource("1_sl1jc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=644826466]
-position = Vector2(1247.0001, 430.00003)
+position = Vector2(1247.0001, 446)
 scale = Vector2(0.77, 0.77)
 shape = SubResource("CircleShape2D_00y7e")

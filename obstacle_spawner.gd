@@ -11,8 +11,11 @@ const MIN_SPACING: float = 60.0
 const OBSTACLE_SCENE: String = "res://obstacle.tscn"
 # How many times to retry finding a free spot before giving up this spawn.
 const PLACEMENT_ATTEMPTS: int = 20
+# Amount of time between obstacle spawns
+const MIN_SPAWN_INTERVAL: float = 2
+const MAX_SPAWN_INTERVAL: float = 4
 
-@export var spawn_interval: float = 1.5
+@export var spawn_interval: float = randf_range(MIN_SPAWN_INTERVAL, MAX_SPAWN_INTERVAL)
 @export var max_obstacles: int = 20
 @export var auto_spawn: bool = true
 
@@ -21,7 +24,6 @@ var _timer: float = 0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print("Obstacle spawner ready")
 	# Seed so runs differ from each other.
 	randomize()
 	if auto_spawn:
@@ -38,12 +40,12 @@ func _process(delta: float) -> void:
 		return
 
 	_timer = 0.0
+	spawn_interval = randf_range(MIN_SPAWN_INTERVAL, MAX_SPAWN_INTERVAL)
 	spawn_obstacle()
 
 
 # Instantiates one obstacle at a random free spawn point.
 func spawn_obstacle() -> void:
-	print("Spawning obstacle")
 	if get_tree().get_nodes_in_group("obstacles").size() >= max_obstacles:
 		return
 
