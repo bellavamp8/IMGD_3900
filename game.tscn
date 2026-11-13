@@ -4,7 +4,8 @@
 [ext_resource type="Script" uid="uid://3cbah41rm1b" path="res://timer.gd" id="2_7jktm"]
 [ext_resource type="PackedScene" uid="uid://dkrqnbr388h1u" path="res://player.tscn" id="3_r4yoh"]
 [ext_resource type="AudioStream" uid="uid://bno38esb2gsol" path="res://audio/music/Hotel Runner v1.wav" id="4_ya0kd"]
-[ext_resource type="PackedScene" uid="uid://b1na0baeel3cd" path="res://obstacle spawner.tscn" id="6_ryrav"]
+[ext_resource type="Script" uid="uid://dydbf7oet1158" path="res://speed_controller.gd" id="6_eow3j"]
+[ext_resource type="PackedScene" uid="uid://b1na0baeel3cd" path="res://obstacle_spawner.tscn" id="6_ryrav"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fc0e3"]
 
@@ -60,7 +61,7 @@ horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="Player" parent="." unique_id=1664604228 instance=ExtResource("3_r4yoh")]
-position = Vector2(183, 429.99994)
+position = Vector2(200, 430)
 scale = Vector2(1.61, 1.61)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=31903574]
@@ -69,3 +70,6 @@ volume_db = -25.946
 autoplay = true
 
 [node name="ObstacleSpawner" parent="." unique_id=881665383 instance=ExtResource("6_ryrav")]
+
+[node name="SpeedController" type="Node2D" parent="." unique_id=584940805]
+script = ExtResource("6_eow3j")
