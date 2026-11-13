@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://bno38esb2gsol" path="res://audio/music/Hotel Runner v1.wav" id="4_ya0kd"]
 [ext_resource type="Script" uid="uid://dydbf7oet1158" path="res://speed_controller.gd" id="6_eow3j"]
 [ext_resource type="PackedScene" uid="uid://b1na0baeel3cd" path="res://obstacle_spawner.tscn" id="6_ryrav"]
+[ext_resource type="AudioStream" uid="uid://br4prtiqbtay2" path="res://audio/music/clearobjective.wav" id="7_eow3j"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fc0e3"]
 
@@ -73,3 +74,6 @@ autoplay = true
 
 [node name="SpeedController" type="Node2D" parent="." unique_id=584940805]
 script = ExtResource("6_eow3j")
+
+[node name="ClearObjectiveSound" type="AudioStreamPlayer2D" parent="SpeedController" unique_id=1571380807]
+stream = ExtResource("7_eow3j")
