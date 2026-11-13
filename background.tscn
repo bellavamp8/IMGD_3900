@@ -22,9 +22,9 @@ tile_proxies/coords_level = [[2, Vector2i(0, 0)], [7, Vector2i(0, 0)], [3, Vecto
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fyobn"]
 size = Vector2(1217, 20)
 
-[node name="background" type="Node2D" unique_id=289052586]
+[node name="background" type="Node2D" unique_id=289052586 groups=["background"]]
 
-[node name="Parallax2D" type="Parallax2D" parent="." unique_id=11300565]
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=11300565 groups=["background"]]
 repeat_size = Vector2(1152, 0)
 autoscroll = Vector2(-100, 0)
 script = ExtResource("5_bpugw")

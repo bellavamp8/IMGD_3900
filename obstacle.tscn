@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_00y7e"]
 radius = 75.66373
 
-[node name="Obstacle" type="Node2D" unique_id=1661161340]
+[node name="Obstacle" type="Node2D" unique_id=1661161340 groups=["background"]]
 script = ExtResource("1_aubd6")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=478328798]

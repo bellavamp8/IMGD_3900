@@ -15,6 +15,11 @@ run/main_scene="uid://ddt8wnyr78df6"
 config/features=PackedStringArray("4.7")
 config/icon="res://IMGD_3900/assets/icon.svg"
 
+[global_group]
+
+player=""
+background=""
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

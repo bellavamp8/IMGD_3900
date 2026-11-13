@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://ddt8wnyr78df6"]
 
+[ext_resource type="Script" uid="uid://carmx2vwmydye" path="res://game.gd" id="1_j5wjh"]
 [ext_resource type="PackedScene" uid="uid://cal0eml0c3qls" path="res://background.tscn" id="1_vrmgq"]
 [ext_resource type="PackedScene" uid="uid://dkrqnbr388h1u" path="res://player.tscn" id="3_r4yoh"]
 [ext_resource type="AudioStream" uid="uid://bno38esb2gsol" path="res://audio/music/Hotel Runner v1.wav" id="4_ya0kd"]
@@ -12,14 +13,11 @@
 stream_count = 1
 stream_0 = ExtResource("4_ya0kd")
 
-[node name="Game" type="Node2D" unique_id=427606292]
+[node name="Game" type="Node2D" unique_id=427606292 groups=["background"]]
+script = ExtResource("1_j5wjh")
 
 [node name="background" parent="." unique_id=289052586 instance=ExtResource("1_vrmgq")]
 position = Vector2(-1, -1)
-
-[node name="Player" parent="." unique_id=1664604228 instance=ExtResource("3_r4yoh")]
-position = Vector2(200, 430)
-scale = Vector2(1.61, 1.61)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=31903574]
 stream = SubResource("AudioStreamPlaylist_vajwr")
@@ -27,6 +25,10 @@ volume_db = -25.946
 autoplay = true
 
 [node name="ObstacleSpawner" parent="." unique_id=881665383 instance=ExtResource("6_ryrav")]
+
+[node name="Player" parent="." unique_id=1664604228 instance=ExtResource("3_r4yoh")]
+position = Vector2(200, 430)
+scale = Vector2(1.61, 1.61)
 
 [node name="SpeedController" type="Node2D" parent="." unique_id=584940805 groups=["speed_controller"]]
 script = ExtResource("6_eow3j")
