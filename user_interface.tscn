@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://bvaieq823o3ce"]
+
+[ext_resource type="Script" uid="uid://3cbah41rm1b" path="res://timer.gd" id="1_kxhmu"]
+[ext_resource type="Texture2D" uid="uid://b7yks0m61fqno" path="res://assets/progress bar most rounded under.png" id="2_0jl8t"]
+[ext_resource type="Texture2D" uid="uid://duy62g6cwdl7l" path="res://assets/progress bar most rounded over.png" id="3_up53h"]
+[ext_resource type="Texture2D" uid="uid://4mg82vx4tgq4" path="res://assets/progress bar most rounded progress orange.png" id="4_r3lf1"]
+[ext_resource type="Script" uid="uid://cyg3p3phxig7y" path="res://texture_progress_bar.gd" id="5_up53h"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_i7dvk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_juc2q"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0jl8t"]
+
+[node name="Control" type="Control" unique_id=239101405]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Timer" type="Panel" parent="." unique_id=789841193]
+layout_mode = 0
+offset_right = 78.0
+offset_bottom = 22.0
+script = ExtResource("1_kxhmu")
+
+[node name="Minutes" type="Label" parent="Timer" unique_id=265299863]
+layout_mode = 0
+offset_left = -15.0
+offset_top = -1.0
+offset_right = 26.0
+offset_bottom = 22.0
+text = "00:"
+label_settings = SubResource("LabelSettings_i7dvk")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Seconds" type="Label" parent="Timer" unique_id=1160086573]
+layout_mode = 0
+offset_left = 9.0
+offset_top = -1.0
+offset_right = 49.0
+offset_bottom = 22.0
+text = "00."
+label_settings = SubResource("LabelSettings_juc2q")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Msecs" type="Label" parent="Timer" unique_id=436215943]
+layout_mode = 0
+offset_left = 36.0
+offset_top = -1.0
+offset_right = 76.0
+offset_bottom = 22.0
+text = "000"
+label_settings = SubResource("LabelSettings_0jl8t")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=133195580]
+layout_mode = 0
+offset_left = 399.0
+offset_top = 29.0
+offset_right = 724.0
+offset_bottom = 93.0
+rounded = true
+nine_patch_stretch = true
+texture_under = ExtResource("2_0jl8t")
+texture_over = ExtResource("3_up53h")
+texture_progress = ExtResource("4_r3lf1")
+script = ExtResource("5_up53h")
+
+[node name="BarText" type="Label" parent="TextureProgressBar" unique_id=1198449522]
+layout_mode = 0
+offset_left = 55.0
+offset_top = -23.0
+offset_right = 265.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Distance to Next Objective:"
+
+[connection signal="value_changed" from="TextureProgressBar" to="TextureProgressBar" method="_on_value_changed"]

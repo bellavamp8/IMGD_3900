@@ -22,6 +22,14 @@ var clear_lock = false; # Makes it so a clear doesn't happen several times when 
 func get_speed() -> float:
 	return current_speed
 
+# Gets distance percentage (for progress bar)
+func get_progress() -> float:
+	return (distance / distance_between_doors)
+
+# Gets remaining distance (for progress bar)
+func get_remaining() -> float:
+	return (distance_between_doors - distance)
+
 # Sets the speed, keeping it within boundaries
 func set_speed(speed: float) -> void:
 	current_speed = speed
