@@ -1,9 +1,10 @@
 extends Node2D
 
 # Speed variables
-@export var start_speed: float = 200
-@export var max_speed: float = 1000
-@export var acceleration: float = 8
+# Acceleration curve scales with both max speed and accel factor
+@export var start_speed: float = 100
+@export var max_speed: float = 500
+@export var accel_factor: float = 0.04
 var current_speed = start_speed
 
 # Distance variables
@@ -13,18 +14,20 @@ var distance = start_distance
 var current_door: int = 0
 
 # Objective variables
-@export var next_objective_door = 50;
-var objective_number = 1;
-var clear_lock = false; # Makes it so a clear doesn't happen several times when a player meets the objective.
+@export var distance_between_objectives = 30
+var next_objective_door = distance_between_objectives
+var previous_objective_door = 0
+var objective_number = 1
+var clear_lock = false # Makes it so a clear doesn't happen several times when a player meets the objective.
 @onready var clear_objective_sound: AudioStreamPlayer2D = $ClearObjectiveSound
 
 # Gets the current speed
 func get_speed() -> float:
 	return current_speed
 
-# Gets distance percentage (for progress bar)
+# Gets percent distance to next objective (for progress bar)
 func get_progress() -> float:
-	return (distance / distance_between_doors)
+	return (float(current_door) - float(previous_objective_door)) / (float(next_objective_door) - float(previous_objective_door)) * 100
 
 # Gets remaining distance (for progress bar)
 func get_remaining() -> float:
@@ -56,8 +59,11 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	# Accelerate
 	if current_speed <= max_speed:
-		current_speed += delta * acceleration
+		current_speed += (accel_factor * max_speed) / (current_speed + 1)
+	
+	# Increase distance
 	distance += delta * current_speed
 	current_door = int(floor(distance)) / distance_between_doors
 	if current_door % next_objective_door == 0 && current_door != 0:
@@ -70,12 +76,13 @@ func objectiveclear() -> void: # This is for the objective stuff
 	clear_objective_sound.play()
 	get_tree().call_group("timer", "reset_timer")
 
-
+	objective_number += 1;
+	previous_objective_door = next_objective_door
+	next_objective_door += distance_between_objectives
 	print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
 	print("-------------------------------------------------")
-	print("OBJECTIVE " + str(objective_number) + " CLEARED!")
+	print("OBJECTIVE " + str(objective_number - 1) + " CLEARED!")
 	print("-------------------------------------------------")
-	objective_number += 1;
 	print("Next Objective Number: " + str(objective_number))
 	print("Next Objective Door: " + str(next_objective_door))
 	print("-------------------------------------------------")
