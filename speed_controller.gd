@@ -1,9 +1,9 @@
 extends Node2D
 
 # Speed variables
-@export var start_speed: float = 200
+@export var start_speed: float = 100
 @export var max_speed: float = 1000
-@export var acceleration: float = 8
+@export var accel_factor: float = 0.08 # Scales the acceleration curve
 var current_speed = start_speed
 
 # Distance variables
@@ -56,8 +56,11 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	# Accelerate
 	if current_speed <= max_speed:
-		current_speed += delta * acceleration
+		current_speed += (accel_factor * max_speed) / (current_speed + 1)
+	
+	# Increase distance
 	distance += delta * current_speed
 	current_door = int(floor(distance)) / distance_between_doors
 	if current_door % next_objective_door == 0 && current_door != 0:
