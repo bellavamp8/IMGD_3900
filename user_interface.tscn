@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://3cbah41rm1b" path="res://timer.gd" id="1_kxhmu"]
 [ext_resource type="Texture2D" uid="uid://b7yks0m61fqno" path="res://assets/progress bar most rounded under.png" id="2_0jl8t"]
+[ext_resource type="AudioStream" uid="uid://bwclwi7gskanf" path="res://audio/music/Alarm Sound.wav" id="2_r3lf1"]
 [ext_resource type="Texture2D" uid="uid://duy62g6cwdl7l" path="res://assets/progress bar most rounded over.png" id="3_up53h"]
 [ext_resource type="Texture2D" uid="uid://4mg82vx4tgq4" path="res://assets/progress bar most rounded progress orange.png" id="4_r3lf1"]
 [ext_resource type="Script" uid="uid://cyg3p3phxig7y" path="res://texture_progress_bar.gd" id="5_up53h"]
@@ -58,6 +59,9 @@ text = "000"
 label_settings = SubResource("LabelSettings_0jl8t")
 horizontal_alignment = 2
 vertical_alignment = 1
+
+[node name="AlarmSound" type="AudioStreamPlayer2D" parent="Timer" unique_id=621735203]
+stream = ExtResource("2_r3lf1")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=133195580]
 layout_mode = 0

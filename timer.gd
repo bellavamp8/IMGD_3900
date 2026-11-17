@@ -5,6 +5,9 @@ extends Panel
 @export var minutes: int = 0
 @export var seconds: int = 0
 @export var msec: int = 0
+@export var alarmlock: int = 0;
+
+@onready var alarm: AudioStreamPlayer2D = $AlarmSound
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -21,7 +24,12 @@ func _process(delta: float) -> void:
 	$Seconds.text = "%02d." % seconds
 	$Msecs.text = "%03d" % msec
 	if time <= 10:
-		get_tree().call_group("player", "is_sweating")
+		if (alarmlock == 0):
+			alarmlock = 1;
+			get_tree().call_group("player", "is_sweating")
+			alarm.play();
+	else:
+		alarmlock = 0;
 	if time <= 0.0:
 		get_tree().call_group("background", "is_scrolling")
 		get_tree().call_group("player", "is_alive")
