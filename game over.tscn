@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://cx213qthk0wse"]
+
+[ext_resource type="Texture2D" uid="uid://c20sxly656hxd" path="res://assets/fb75b757e0f79e5f96b0fc0fa75b0560.jpg" id="1_6cxpi"]
+[ext_resource type="Script" uid="uid://fg7bajp73gsj" path="res://game over.gd" id="1_v7q4x"]
+
+[node name="Game Over" type="Control" unique_id=1056131833]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v7q4x")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=743724260]
+position = Vector2(462, 153)
+scale = Vector2(1.924, 1.306)
+texture = ExtResource("1_6cxpi")
+
+[node name="Label" type="Label" parent="." unique_id=66176231]
+layout_mode = 0
+offset_left = 317.0
+offset_top = 151.0
+offset_right = 597.0
+offset_bottom = 219.0
+theme_override_font_sizes/font_size = 92
+text = "GAME OVER"
+
+[node name="Restart Button" type="Button" parent="." unique_id=780415088]
+layout_mode = 0
+offset_left = 467.0
+offset_top = 333.0
+offset_right = 675.0
+offset_bottom = 408.0
+theme_override_font_sizes/font_size = 48
+text = "RESTART"
+
+[node name="Exit Button" type="Button" parent="." unique_id=901535482]
+layout_mode = 0
+offset_left = 469.0
+offset_top = 422.0
+offset_right = 677.0
+offset_bottom = 497.0
+theme_override_font_sizes/font_size = 48
+text = "EXIT"
+
+[connection signal="pressed" from="Restart Button" to="." method="_restart"]
+[connection signal="pressed" from="Exit Button" to="." method="_exit"]

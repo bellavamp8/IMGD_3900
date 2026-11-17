@@ -20,11 +20,16 @@ func _process(delta: float) -> void:
 	$Minutes.text = "%02d:" % minutes
 	$Seconds.text = "%02d." % seconds
 	$Msecs.text = "%03d" % msec
+	if time <= 10:
+		get_tree().call_group("player", "is_sweating")
 	if time <= 0.0:
-		get_tree().quit()
+		get_tree().call_group("background", "is_scrolling")
+		get_tree().call_group("player", "is_alive")
+		
 
 func reset_timer() -> void:
 	time = 60.0
+	get_tree().call_group("player", "is_not_sweating")
 
 func format_timer() -> String:
 	return "%02d:%02d.%03d" % [minutes, seconds, msec]
