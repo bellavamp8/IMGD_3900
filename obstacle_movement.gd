@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var speed_controller = get_node("/root/Game/SpeedController")
 @onready var area: Area2D = $Area2D
+@onready var hit_sound: AudioStreamPlayer2D = $/root/Game/Player/CharacterBody2D/HitSoundLight
 @onready var scrolling = true
 
 # Called when the node enters the scene tree for the first time.
@@ -24,3 +25,4 @@ func _on_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D:
 		speed_controller.reset_speed()
 		area.set_deferred("monitoring", false)
+		hit_sound.play()

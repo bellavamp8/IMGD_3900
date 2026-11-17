@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://dalsn47tip4sn" path="res://audio/sound effects/footsteps/bc_fs_tile3.wav" id="5_1h0gp"]
 [ext_resource type="AudioStream" uid="uid://b6wjpnxaa4mss" path="res://audio/sound effects/footsteps/bc_fs_tile4.wav" id="6_367s2"]
 [ext_resource type="AudioStream" uid="uid://bwmvuecusena3" path="res://audio/music/Death Sound.wav" id="7_1jxqw"]
+[ext_resource type="AudioStream" uid="uid://dkvgc1mq3o4ue" path="res://audio/sound effects/bc_hitlight_muffled.wav" id="8_dw050"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b26j0"]
 atlas = ExtResource("2_2hs0m")
@@ -164,5 +165,9 @@ libraries/ = SubResource("AnimationLibrary_1jxqw")
 
 [node name="DeathSound" type="AudioStreamPlayer2D" parent="CharacterBody2D" unique_id=471150395]
 stream = ExtResource("7_1jxqw")
+
+[node name="HitSoundLight" type="AudioStreamPlayer2D" parent="CharacterBody2D" unique_id=1717199041]
+stream = ExtResource("8_dw050")
+volume_db = 3.0
 
 [connection signal="animation_finished" from="CharacterBody2D/AnimationPlayer" to="CharacterBody2D" method="_on_animation_player_animation_finished"]

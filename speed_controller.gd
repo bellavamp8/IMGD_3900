@@ -24,7 +24,7 @@ func get_speed() -> float:
 
 # Gets distance percentage (for progress bar)
 func get_progress() -> float:
-	return (distance / distance_between_doors)
+	return (float(current_door) / float(next_objective_door))
 
 # Gets remaining distance (for progress bar)
 func get_remaining() -> float:
