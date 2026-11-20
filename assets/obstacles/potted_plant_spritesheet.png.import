@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wi8wq8rnpaol"
-path="res://.godot/imported/butler spritesheet.png-bf2be034502e707a4ba69bc490599fd2.ctex"
+uid="uid://cj5bvkpj3r8n4"
+path="res://.godot/imported/potted_plant_spritesheet.png-a6e9bd812209a96a99d77abe39aec486.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/butler spritesheet.png"
-dest_files=["res://.godot/imported/butler spritesheet.png-bf2be034502e707a4ba69bc490599fd2.ctex"]
+source_file="res://assets/obstacles/potted_plant_spritesheet.png"
+dest_files=["res://.godot/imported/potted_plant_spritesheet.png-a6e9bd812209a96a99d77abe39aec486.ctex"]
 
 [params]
 
