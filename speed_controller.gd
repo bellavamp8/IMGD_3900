@@ -2,7 +2,7 @@ extends Node2D
 
 # Speed variables
 # Acceleration curve scales with both max speed and accel factor
-@export var start_speed: float = 100
+@export var start_speed: float = 200
 @export var max_speed: float = 500
 @export var accel_factor: float = 0.04
 var current_speed = start_speed
@@ -66,6 +66,8 @@ func _process(delta: float) -> void:
 	if current_speed <= max_speed:
 		current_speed += (accel_factor * max_speed) / (current_speed + 1)
 	
+	
+	
 	# Increase distance
 	distance += delta * current_speed
 	current_door = int(floor(distance)) / distance_between_doors
@@ -92,12 +94,12 @@ func objectiveclear() -> void:
 	objective_number += 1
 
 	if (objective_number == 2):
-		start_speed = 150
+		start_speed = 300
 		max_speed = 750
 		accel_factor = 0.06
 		distance_between_objectives = 60
 	if (objective_number == 3):
-		start_speed = 225
+		start_speed = 450
 		max_speed = 1075
 		accel_factor = 0.09
 		distance_between_objectives = 90
