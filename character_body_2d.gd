@@ -9,12 +9,13 @@ var deathsoundlock = 0;
 var jump_sound = preload("res://audio/sound effects/bc_jump1.wav")
 var heavy_hit = preload("res://audio/sound effects/bc_hitheavy_muffled.wav")
 var light_hit = preload("res://audio/sound effects/bc_hitlight_muffled.wav")
+@onready var speed_controller = get_node("/root/Game/SpeedController")
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var footsteps: AudioStreamPlayer = $footsteps
 @onready var sweating = false
-@onready var starting_to_jump = false
 @onready var alive = true
+@onready var fire = false
 @onready var DeathSound: AudioStreamPlayer2D = $DeathSound
 
 func play_jump_sound():
@@ -40,7 +41,12 @@ func is_not_sweating() -> void:
 
 func is_alive() -> void:
 	alive = false
-	
+
+func is_on_fire() -> void:
+	fire = true
+
+func is_not_on_fire() -> void:
+	fire = false
 
 func _physics_process(delta: float) -> void:
 	if alive:
@@ -48,12 +54,23 @@ func _physics_process(delta: float) -> void:
 		if not is_on_floor():
 			velocity += (get_gravity() * delta*0.8)
 		
+		if is_on_floor() and sweating and fire:
+			footsteps.set_stream_paused(false)
+			animated_sprite.play("Run (fire sweat)")
+		elif is_on_floor() and fire:
+			footsteps.set_stream_paused(false)
+			animated_sprite.play("Run (fire)")
 		if is_on_floor() and sweating:
 			footsteps.set_stream_paused(false)
 			animated_sprite.play("Run (sweat)")
 		elif is_on_floor():
 			footsteps.set_stream_paused(false)
 			animated_sprite.play("Run")
+	
+		if speed_controller.current_speed == speed_controller.max_speed:
+			is_on_fire()
+		else:
+			is_not_on_fire()
 
 		# Handle jump.
 		if Input.is_action_just_pressed("ui_accept") and is_on_floor():
@@ -61,6 +78,18 @@ func _physics_process(delta: float) -> void:
 			play_jump_sound()
 			footsteps.set_stream_paused(true)
 			animated_sprite.play("Jump")
+			if sweating and fire:
+				footsteps.set_stream_paused(true)
+				animated_sprite.play("Jump (fire sweat)")
+			elif fire:
+				footsteps.set_stream_paused(true)
+				animated_sprite.play("Jump (fire)")
+			elif sweating:
+				footsteps.set_stream_paused(true)
+				animated_sprite.play("Jump (sweat)")
+			else:
+				footsteps.set_stream_paused(true)
+				animated_sprite.play("Jump")
 			
 		# Handle jump interrupt
 		# If player stops holding the jump button before the apex of the jump (i.e. while their Y
@@ -68,7 +97,7 @@ func _physics_process(delta: float) -> void:
 		# which reduces their jump height less if they held the button for longer
 		if Input.is_action_just_released("ui_accept") and velocity.y < 0.0:
 			velocity.y *= JUMP_CUTOFF_FACTOR
-		
+			
 	else:
 		if (deathsoundlock == 0):
 			deathsoundlock = 1;

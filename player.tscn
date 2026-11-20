@@ -1,46 +1,68 @@
 [gd_scene format=3 uid="uid://dkrqnbr388h1u"]
 
 [ext_resource type="Script" uid="uid://ddta58rnsmwph" path="res://character_body_2d.gd" id="1_2h4hl"]
-[ext_resource type="Texture2D" uid="uid://wi8wq8rnpaol" path="res://assets/butler spritesheet.png" id="2_2hs0m"]
+[ext_resource type="Texture2D" uid="uid://dx42p5y31usvj" path="res://assets/butler_spritesheet.png" id="2_dw050"]
 [ext_resource type="AudioStream" uid="uid://bp53s0hpvrwtv" path="res://audio/sound effects/footsteps/bc_fs_tile1.wav" id="3_e8p4d"]
 [ext_resource type="AudioStream" uid="uid://bh4tc7k1pksa5" path="res://audio/sound effects/footsteps/bc_fs_tile2.wav" id="4_63upp"]
 [ext_resource type="AudioStream" uid="uid://dalsn47tip4sn" path="res://audio/sound effects/footsteps/bc_fs_tile3.wav" id="5_1h0gp"]
 [ext_resource type="AudioStream" uid="uid://b6wjpnxaa4mss" path="res://audio/sound effects/footsteps/bc_fs_tile4.wav" id="6_367s2"]
 [ext_resource type="AudioStream" uid="uid://bwmvuecusena3" path="res://audio/music/Death Sound.wav" id="7_1jxqw"]
+[ext_resource type="AudioStream" uid="uid://dkvgc1mq3o4ue" path="res://audio/sound effects/bc_hitlight_muffled.wav" id="8_dw050"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b26j0"]
-atlas = ExtResource("2_2hs0m")
+atlas = ExtResource("2_dw050")
 region = Rect2(600, 0, 200, 200)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n7ghd"]
-atlas = ExtResource("2_2hs0m")
+atlas = ExtResource("2_dw050")
 region = Rect2(800, 0, 200, 200)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nvl01"]
-atlas = ExtResource("2_2hs0m")
+atlas = ExtResource("2_dw050")
 region = Rect2(1000, 0, 200, 200)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ivps1"]
-load_path = "res://.godot/imported/butler spritesheet.png-bf2be034502e707a4ba69bc490599fd2.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dw050"]
-atlas = SubResource("CompressedTexture2D_ivps1")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ivps1"]
+atlas = ExtResource("2_dw050")
 region = Rect2(400, 0, 200, 200)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2hs0m"]
-atlas = SubResource("CompressedTexture2D_ivps1")
-region = Rect2(0, 0, 200, 200)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1jxqw"]
-atlas = SubResource("CompressedTexture2D_ivps1")
-region = Rect2(200, 0, 200, 200)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_urp6f"]
-atlas = ExtResource("2_2hs0m")
-region = Rect2(1200, 0, 200, 200)
+atlas = ExtResource("2_dw050")
+region = Rect2(2200, 0, 200, 200)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bwjto"]
-atlas = ExtResource("2_2hs0m")
+atlas = ExtResource("2_dw050")
+region = Rect2(1600, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_606se"]
+atlas = ExtResource("2_dw050")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1c27"]
+atlas = ExtResource("2_dw050")
+region = Rect2(200, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_op7ga"]
+atlas = ExtResource("2_dw050")
+region = Rect2(2400, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q13i1"]
+atlas = ExtResource("2_dw050")
+region = Rect2(2600, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pylmc"]
+atlas = ExtResource("2_dw050")
+region = Rect2(1800, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pbfsw"]
+atlas = ExtResource("2_dw050")
+region = Rect2(2000, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5tmop"]
+atlas = ExtResource("2_dw050")
+region = Rect2(1200, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ahtn"]
+atlas = ExtResource("2_dw050")
 region = Rect2(1400, 0, 200, 200)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lpig7"]
@@ -61,18 +83,39 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dw050")
+"texture": SubResource("AtlasTexture_ivps1")
 }],
 "loop": 1,
 "name": &"Jump",
 "speed": 5.0
 }, {
+"frames": [],
+"loop": 1,
+"name": &"Jump (fire sweat)",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2hs0m")
+"texture": SubResource("AtlasTexture_urp6f")
+}],
+"loop": 1,
+"name": &"Jump (fire)",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bwjto")
+}],
+"loop": 1,
+"name": &"Jump (sweat)",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_606se")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1jxqw")
+"texture": SubResource("AtlasTexture_u1c27")
 }],
 "loop": 1,
 "name": &"Run",
@@ -80,10 +123,32 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_urp6f")
+"texture": SubResource("AtlasTexture_op7ga")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bwjto")
+"texture": SubResource("AtlasTexture_q13i1")
+}],
+"loop": 1,
+"name": &"Run (fire sweat)",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pylmc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pbfsw")
+}],
+"loop": 1,
+"name": &"Run (fire)",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5tmop")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ahtn")
 }],
 "loop": 1,
 "name": &"Run (sweat)",
@@ -146,7 +211,7 @@ script = ExtResource("1_2h4hl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=2053304931]
 sprite_frames = SubResource("SpriteFrames_lpig7")
-animation = &"Fall"
+animation = &"Jump"
 
 [node name="footsteps" type="AudioStreamPlayer" parent="CharacterBody2D" unique_id=1941456189]
 stream = SubResource("AudioStreamPlaylist_oecdl")
@@ -164,5 +229,9 @@ libraries/ = SubResource("AnimationLibrary_1jxqw")
 
 [node name="DeathSound" type="AudioStreamPlayer2D" parent="CharacterBody2D" unique_id=471150395]
 stream = ExtResource("7_1jxqw")
+
+[node name="HitSoundLight" type="AudioStreamPlayer2D" parent="CharacterBody2D" unique_id=1717199041]
+stream = ExtResource("8_dw050")
+volume_db = 3.0
 
 [connection signal="animation_finished" from="CharacterBody2D/AnimationPlayer" to="CharacterBody2D" method="_on_animation_player_animation_finished"]

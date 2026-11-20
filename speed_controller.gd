@@ -14,12 +14,14 @@ var distance = start_distance
 var current_door: int = 0
 
 # Objective variables
-@export var distance_between_objectives = 30
+var distance_between_objectives = 30;
 var next_objective_door = distance_between_objectives
 var previous_objective_door = 0
 var objective_number = 1
-var clear_lock = false # Makes it so a clear doesn't happen several times when a player meets the objective.
+var big_clear_lock = false # Makes it so a clear doesn't happen several times when a player meets the objective.
+var mini_clear_lock = false
 @onready var clear_objective_sound: AudioStreamPlayer2D = $ClearObjectiveSound
+@export var miniobjective = 0; #This is the progression value used for spawning, so it's equal to 1/3 of a regular objective.
 
 # Gets the current speed
 func get_speed() -> float:
@@ -58,7 +60,8 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(delta: float) -> void:	
+	
 	# Accelerate
 	if current_speed <= max_speed:
 		current_speed += (accel_factor * max_speed) / (current_speed + 1)
@@ -66,25 +69,57 @@ func _process(delta: float) -> void:
 	# Increase distance
 	distance += delta * current_speed
 	current_door = int(floor(distance)) / distance_between_doors
+	
+	
+	if (current_door % (distance_between_objectives / 3) == 0) and (current_door != 0):
+		if mini_clear_lock != true:
+			miniobjectiveclear();
+	
+	
 	if current_door % next_objective_door == 0 && current_door != 0:
-		if clear_lock != true:
+		if big_clear_lock != true:
 			objectiveclear()
+			
 
-func objectiveclear() -> void: # This is for the objective stuff
-	clear_lock = true;
-	current_speed = start_speed
+
+
+
+func objectiveclear() -> void:
+	big_clear_lock = true
 	clear_objective_sound.play()
 	get_tree().call_group("timer", "reset_timer")
 
-	objective_number += 1;
+	objective_number += 1
+
+	if (objective_number == 2):
+		start_speed = 150
+		max_speed = 750
+		accel_factor = 0.06
+		distance_between_objectives = 60
+	if (objective_number == 3):
+		start_speed = 225
+		max_speed = 1075
+		accel_factor = 0.09
+		distance_between_objectives = 90
+
+	current_speed = start_speed
 	previous_objective_door = next_objective_door
 	next_objective_door += distance_between_objectives
-	print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
+
 	print("-------------------------------------------------")
 	print("OBJECTIVE " + str(objective_number - 1) + " CLEARED!")
 	print("-------------------------------------------------")
 	print("Next Objective Number: " + str(objective_number))
 	print("Next Objective Door: " + str(next_objective_door))
 	print("-------------------------------------------------")
-	await get_tree().create_timer(10.0).timeout # Timer to prevent clear from happening several times upon hitting the required x value.
-	clear_lock = false;
+
+	await get_tree().create_timer(10.0).timeout
+	big_clear_lock = false
+	
+	
+	
+func miniobjectiveclear() -> void:
+	mini_clear_lock = true;
+	miniobjective += 1;
+	await get_tree().create_timer(5.0).timeout # Timer to prevent clear from happening several times upon hitting the required x value.
+	mini_clear_lock = false;
