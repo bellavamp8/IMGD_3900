@@ -57,19 +57,15 @@ func _physics_process(delta: float) -> void:
 		if is_on_floor() and sweating and fire:
 			footsteps.set_stream_paused(false)
 			animated_sprite.play("Run (fire sweat)")
-			print("Run (fire sweat)")
 		elif is_on_floor() and fire:
 			footsteps.set_stream_paused(false)
 			animated_sprite.play("Run (fire)")
-			print("Run (fire)")
 		elif is_on_floor() and sweating:
 			footsteps.set_stream_paused(false)
 			animated_sprite.play("Run (sweat)")
-			print("Run (sweat)")
 		elif is_on_floor():
 			footsteps.set_stream_paused(false)
 			animated_sprite.play("Run")
-			print("Run")
 	
 		if speed_controller.current_speed >= speed_controller.max_speed:
 			is_on_fire()
@@ -84,19 +80,15 @@ func _physics_process(delta: float) -> void:
 			if sweating and fire:
 				footsteps.set_stream_paused(true)
 				animated_sprite.play("Jump (fire sweat)")
-				print("Jump (fire sweat)")
 			elif fire:
 				footsteps.set_stream_paused(true)
 				animated_sprite.play("Jump (fire)")
-				print("Jump (fire)")
 			elif sweating:
 				footsteps.set_stream_paused(true)
 				animated_sprite.play("Jump (sweat)")
-				print("Jump (sweat)")
 			else:
 				footsteps.set_stream_paused(true)
 				animated_sprite.play("Jump")
-				print("Jump")
 			
 		# Handle jump interrupt
 		# If player stops holding the jump button before the apex of the jump (i.e. while their Y
