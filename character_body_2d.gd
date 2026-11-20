@@ -2,7 +2,8 @@ extends CharacterBody2D
 
 
 const SPEED = 300.0
-const JUMP_VELOCITY = -550.0
+const JUMP_VELOCITY = -675.0
+const JUMP_CUTOFF_FACTOR = 0.7
 var deathsoundlock = 0;
 
 var jump_sound = preload("res://audio/sound effects/bc_jump1.wav")
@@ -12,6 +13,7 @@ var light_hit = preload("res://audio/sound effects/bc_hitlight_muffled.wav")
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var footsteps: AudioStreamPlayer = $footsteps
 @onready var sweating = false
+@onready var starting_to_jump = false
 @onready var alive = true
 @onready var DeathSound: AudioStreamPlayer2D = $DeathSound
 
@@ -59,6 +61,14 @@ func _physics_process(delta: float) -> void:
 			play_jump_sound()
 			footsteps.set_stream_paused(true)
 			animated_sprite.play("Jump")
+			
+		# Handle jump interrupt
+		# If player stops holding the jump button before the apex of the jump (i.e. while their Y
+		# velocity is upwards), then their velocity gets multiplied by a factor between 0 and 1,
+		# which reduces their jump height less if they held the button for longer
+		if Input.is_action_just_released("ui_accept") and velocity.y < 0.0:
+			velocity.y *= JUMP_CUTOFF_FACTOR
+		
 	else:
 		if (deathsoundlock == 0):
 			deathsoundlock = 1;
