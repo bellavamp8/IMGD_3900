@@ -25,7 +25,7 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D:
-		speed_controller.reset_speed()
+		speed_controller.set_speed(speed_controller.get_speed() * 0.4)
 		area.set_deferred("monitoring", false)
 		animated_sprite.play("Hit")
 		hit_sound.play()
