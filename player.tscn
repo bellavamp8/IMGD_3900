@@ -211,7 +211,7 @@ script = ExtResource("1_2h4hl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=2053304931]
 sprite_frames = SubResource("SpriteFrames_lpig7")
-animation = &"Jump"
+animation = &"Run (fire)"
 
 [node name="footsteps" type="AudioStreamPlayer" parent="CharacterBody2D" unique_id=1941456189]
 stream = SubResource("AudioStreamPlaylist_oecdl")
