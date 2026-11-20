@@ -18,6 +18,7 @@ const MAX_SPAWN_INTERVAL: float = 4
 @export var spawn_interval: float = randf_range(MIN_SPAWN_INTERVAL, MAX_SPAWN_INTERVAL)
 @export var max_obstacles: int = 20
 @export var auto_spawn: bool = true
+@export var obstacle_spawned: int = 0
 
 var _timer: float = 0.0
 
@@ -62,6 +63,7 @@ func spawn_obstacle() -> void:
 
 	var obs: Node2D = scene.instantiate()
 	obs.position = pos
+	obstacle_spawned = randi_range(0, 1)
 	add_child(obs)
 	obs.add_to_group("obstacles")
 

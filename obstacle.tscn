@@ -1,16 +1,16 @@
 [gd_scene format=3 uid="uid://g78pwwxujlus"]
 
 [ext_resource type="Script" uid="uid://dxmp5ghd27mgm" path="res://obstacle_movement.gd" id="1_aubd6"]
-[ext_resource type="Texture2D" uid="uid://ct4mv8w4hyumy" path="res://assets/obstacles/wet_floor_sign_spritesheet.png" id="2_aubd6"]
+[ext_resource type="Texture2D" uid="uid://cj5bvkpj3r8n4" path="res://assets/obstacles/potted_plant_spritesheet.png" id="2_aubd6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_00y7e"]
 radius = 75.66373
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_aubd6"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_vcivv"]
 atlas = ExtResource("2_aubd6")
 region = Rect2(64, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vcivv"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_tyhon"]
 atlas = ExtResource("2_aubd6")
 region = Rect2(0, 0, 64, 64)
 
@@ -18,7 +18,7 @@ region = Rect2(0, 0, 64, 64)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_aubd6")
+"texture": SubResource("AtlasTexture_vcivv")
 }],
 "loop": 1,
 "name": &"Hit",
@@ -26,7 +26,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vcivv")
+"texture": SubResource("AtlasTexture_tyhon")
 }],
 "loop": 1,
 "name": &"Idle",
@@ -36,14 +36,27 @@ animations = [{
 [node name="Obstacle" type="Node2D" unique_id=1661161340 groups=["background"]]
 script = ExtResource("1_aubd6")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=478328798]
+[node name="Area2D_Sign" type="Area2D" parent="." unique_id=478328798]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=644826466]
+[node name="CollisionShape2D_sign" type="CollisionShape2D" parent="Area2D_Sign" unique_id=644826466]
 position = Vector2(1247.0001, 446)
 scale = Vector2(0.77, 0.77)
 shape = SubResource("CircleShape2D_00y7e")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D" unique_id=1186314889]
+[node name="AnimatedSprite2D_sign" type="AnimatedSprite2D" parent="Area2D_Sign" unique_id=1186314889]
+position = Vector2(1247, 434)
+scale = Vector2(2.428, 2.428)
+sprite_frames = SubResource("SpriteFrames_nq01t")
+animation = &"Hit"
+
+[node name="Area2D_Plant" type="Area2D" parent="." unique_id=344111337]
+
+[node name="CollisionShape2D_plant" type="CollisionShape2D" parent="Area2D_Plant" unique_id=1879544372]
+position = Vector2(1247.0001, 446)
+scale = Vector2(0.77, 0.77)
+shape = SubResource("CircleShape2D_00y7e")
+
+[node name="AnimatedSprite2D_plant" type="AnimatedSprite2D" parent="Area2D_Plant" unique_id=572114729]
 position = Vector2(1247, 434)
 scale = Vector2(2.428, 2.428)
 sprite_frames = SubResource("SpriteFrames_nq01t")
